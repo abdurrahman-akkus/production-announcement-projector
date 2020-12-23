@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="js backgroundsize fa-events-icons-ready" lang="en">
+	<head>
+		<title>SinapsTV·Sunum</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+		<link href="css/all.css" rel="stylesheet" type="text/css"/>
+		<link href="css/stil.css" rel="stylesheet" type="text/css"/>
+		<script src="js/modernizr.custom.js"></script>
+		<link rel="shortcut icon" type="image/svg" href="img/sinapsTVfav.svg" />
+	</head>
+	<body style="background-color:#000">
+		<div>
+			<button id="buton" onclick="openFullScreen()">-></button>
+			<a href="duyurular.php" target="_blank">Duyurular</a> |
+			<a href="bppuanlari.php" target="_blank">BP Puanları</a>
+		</div>
+		<div style="font-family: 'Lato', Calibri, Arial, sans-serif;">
+			<div class="main container-fluid">
+				<div style="position: relative;">
+					<div id="saat_container"
+						style="position: absolute; top: 0px; left: -20px; right: -20px; height: 100%; background-color: darkolivegreen; z-index: 1000; display: none;">
+						<div class="d-flex" style="flex-wrap: wrap;">
+							<span class="m-auto" style="font-size: 12rem; line-height: 14rem; color: white;">
+								<u><span id="donem">08:00-09:00</span></u>
+							</span>
+							<div style="flex-basis: 100%;height: 0;"></div><span
+							style="font-size: 17rem; line-height: 18rem; color: white;" class="mx-auto"><span
+								id="saat">10</span><span id="blink" style="visibility: visible;">:</span><span
+							id="dakika">57</span></span>
+						</div>
+					</div>
+					<div id="duyuru_container" class="d-none"
+						style="position: absolute; top: 0px; left: -20px; right: -20px; height: 100%; background-color: rgb(231, 241, 214); z-index: 1000; display: none; overflow: hidden;">
+						<div id="duyuru" class="offset-2 col-10 p-0" style="background: black;">
+						</div>
+					</div>
+					<div class="row" style="text-align: center;">
+						<div class="col-2">
+							<h1 class="display-1 text-fantastik" id="bantAd"
+							style="font-size: 6.5rem;overflow: hidden;text-transform: uppercase;z-index: 1001;position: relative;">
+							</h1>
+							<!--div id="yildiz_kapsayici" class="d-none">
+								<i class="far fa-star fa-3x yildiz"></i>
+								<div class="d-flex justify-content-center">
+											<i class="far fa-star fa-3x yildiz" style="margin-right: 12.5%"></i>
+											<i class="far fa-star fa-3x yildiz" style="margin-left: 12.5%"></i>
+								</div>
+								<div class="d-flex justify-content-center">
+											<i class="far fa-star fa-3x yildiz" style="margin-right: 2.5%"></i>
+											<i class="far fa-star fa-3x yildiz" style="margin-left: 2.5%"></i>
+								</div>
+								<div class="bg-normal mt-2" id="yildiz_aciklama"></div>
+						</div-->
+						<div id="yildiz_kapsayici" class="d-none" style="min-width: 9rem;">
+							<div class="d-flex justify-content-center">
+								<i class="far fa-star fa-3x yildiz"></i>
+							</div>
+							<div class="d-flex justify-content-center" style="position: relative;">
+								<i class="far fa-star fa-3x yildiz" style="margin-right: 1.5rem;"></i>
+								<i id="birinci" class="fas fa-trophy fa-3x d-none" style="color: #c1b28b; position: absolute; top:.5rem;"></i>
+								<i class="far fa-star fa-3x yildiz" style="margin-left: 1.5rem;"></i>
+							</div>
+							<div class="d-flex justify-content-center">
+								<i class="far fa-star fa-3x yildiz"></i>
+								<i class="far fa-star fa-3x yildiz"></i>
+							</div>
+							<div class="bg-normal mt-2" id="yildiz_aciklama">
+								
+							</div>
+						</div>
+					</div>
+					<div class="col-8">
+						<div class="row">
+							<div class="col-12">
+								<h2 class="display-1 text-fantastik" id="model_adi">MODEL ADI</h2>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7 bg-secondary hedef-container">
+								<h3 class="hedef">
+								<i class="fas fa-bullseye"></i>
+								<span id="topHedef"></span>
+								<span hidden class="aciklama">Toplam Hedef</span>
+								</h3>
+							</div>
+							<div class="col-5 bg-secondary hedef-container">
+								<h3 class="hedef">
+								<i class="far fa-dot-circle"></i>
+								<span id="dikimHedef"></span>
+								<span hidden class="aciklama">Donem. Hedef</span>
+								</h3>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7 yapilan-container bg-normal">
+								<h3 class="yapilan">
+								<i class="far fa-calendar-check"></i>
+								<span id="topDikim"></span>
+								<span hidden class="aciklama">Toplam Dikim</span>
+								</h3>
+							</div>
+							<div class="col-5 yapilan-container bg-hata">
+								<h3 class="yapilan">
+								<i class="far fa-check-square"></i>
+								<span id="dikimAdet"></span>
+								<span hidden class="aciklama">Donem. Dikim</span>
+								</h3>
+							</div>
+						</div>
+					</div>
+					<div class="col-2" hidden>
+						<h1 class="display-3 text-hata" style="font-weight: bold;">HATA</h1>
+						<div class="hata-kodu-container justify-content-between"><span class="hata-kodu">H</span><span
+					class="badge bg-hata hata-adedi p-2">X</span></div>
+					<div class="hata-kodu-container justify-content-between"><span class="hata-kodu">H</span><span
+				class="badge bg-hata hata-adedi p-2">X</span></div>
+				<div class="hata-kodu-container justify-content-between"><span class="hata-kodu">H</span><span
+			class="badge bg-hata hata-adedi p-2">X</span></div>
+		</div>
+		<div class="col-2">
+			<h1 class="display-4 text-fantastik" style="font-weight: bold;">VERİM</h1>
+			<div class="hata-kodu-container justify-content-between"><span class="m-auto"
+			id="verim">-</span></div>
+			<h1 class="display-3 text-fantastik" style="font-weight: bold;">WFT</h1>
+			<div class="hata-kodu-container justify-content-between">
+				<span class="m-auto" id="wft">-</span>
+			</div>
+		</div>
+	</div>
+	<div class="row mt-2" style="text-align: center;">
+		<div class="col-4 bg-secondary kalite">
+			<h3>
+			<i class="fas fa-tasks bg-basarili br-rad"></i>
+			<span id="top_kontrol"></span>
+			<span hidden class="aciklama">Top. Kontrol</span>
+			</h3>
+		</div>
+		<div class="col p-1 bg-secondary kalite">
+			<h3><i class="fas fa-retweet bg-dark br-rad"></i>
+			<span id="reins"></span>
+			<span hidden class="aciklama">Tekrar Kont.</span>
+			</h3>
+		</div>
+		<div class="col p-1 bg-secondary kalite">
+			<h3>
+			<i class="fas fa-thumbs-down bg-normal br-rad"></i>
+			<span id="hata_adedi"></span>
+			<span hidden class="aciklama">Top. Hata</span>
+			</h3>
+		</div>
+		<div class="col p-1 bg-secondary kalite">
+			<h3>
+			<i class="fas fa-skull bg-hata br-rad"></i>
+			<span id="hatali_urun"></span>
+			<span hidden class="aciklama">Hatalı Ürün</span>
+			</h3>
+		</div>
+	</div>
+</div>
+<div class="row" style="text-align: center;">
+	<div class="col-9 p-2 bg-secondary">
+		<h3 class="display-3" id="operator">OPERATOR ADI</h3>
+	</div>
+	<div class="col-3 p-2 bg-secondary kalite puanlar text-center">
+		<span class="m-auto">
+			<div class="badge puan bg-light text-light"> </div>
+			<div class="badge puan bg-light text-light"> </div>
+			<div class="badge puan bg-light text-light"> </div>
+			<div class="badge puan bg-light text-light"> </div>
+		</span>
+	</div>
+</div>
+</div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js(Dropdownlar için), then Bootstrap JS -->
+<script src="js/jquery-3.4.0.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery.textfill.min.js"></script>
+<script src="js/util.js"></script>
+<script src="js/main.js"></script>
+<script>
+	$(document).ready(function () {
+		var f = document.getElementById('blink');
+		setInterval(function () {
+			f.style.visibility = (f.style.visibility == 'hidden' ? 'visible' : 'hidden');
+		}, 1000);
+});</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+
+Yazılım Adı 		: SinapsTV
+Versiyon No 		: 1.4.2
+Versiyon Tarihi 	: 01.10.2020
+Yazarlar		: Abdurrahman AKKUŞ
+			: Ahmet AKKUŞ
+Özlük Hakkı 		: Algoritim Bilişim
+
+
+/***********************DEĞİŞİKLİKLER***********************/
+1- Beautiful Product göstergesi düzeltildi,
+2- Duyuru yazısı sığdırma yapıldı,
+3- BeyboWS-v1.3+ ile uyumlu çalışır.
+/***********************************************************/

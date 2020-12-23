@@ -1,0 +1,27 @@
+/*
+YUI 3.18.1 (build f7e7bcb)
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+
+.cssreset html{color:#000;background:#FFF}.cssreset body,.cssreset div,.cssreset dl,.cssreset dt,.cssreset dd,.cssreset ul,.cssreset ol,.cssreset li,.cssreset h1,.cssreset h2,.cssreset h3,.cssreset h4,.cssreset h5,.cssreset h6,.cssreset pre,.cssreset code,.cssreset form,.cssreset fieldset,.cssreset legend,.cssreset input,.cssreset textarea,.cssreset p,.cssreset blockquote,.cssreset th,.cssreset td{margin:0;padding:0}.cssreset table{border-collapse:collapse;border-spacing:0}.cssreset fieldset,.cssreset img{border:0}/*.cssreset address,.cssreset caption,.cssreset cite,.cssreset code,.cssreset dfn,.cssreset em,.cssreset strong,.cssreset th,.cssreset var{font-style:normal;font-weight:normal}*//*.cssreset ol,.cssreset ul{list-style:none}*/.cssreset caption,.cssreset th{text-align:left}.cssreset h1,.cssreset h2,.cssreset h3,.cssreset h4,.cssreset h5,.cssreset h6{font-size:100%;font-weight:normal}.cssreset q:before,.cssreset q:after{content:''}.cssreset abbr,.cssreset acronym{border:0;font-variant:normal}.cssreset sup{vertical-align:text-top}.cssreset sub{vertical-align:text-bottom}.cssreset input,.cssreset textarea,.cssreset select{font-family:inherit;font-size:inherit;font-weight:inherit}.cssreset input,.cssreset textarea,.cssreset select{*font-size:100%}.cssreset legend{color:#000}#yui3-css-stamp.cssreset-context{display:none}
+
+.cssreset ul { 
+   list-style-type: disc; 
+   list-style-position: inside; 
+}
+.cssreset ol { 
+   list-style-type: decimal; 
+   list-style-position: inside; 
+}
+.cssreset ul ul, ol ul { 
+   list-style-type: circle; 
+   list-style-position: inside; 
+   margin-left: 15px; 
+}
+.cssreset ol ol, ul ol { 
+   list-style-type: lower-latin; 
+   list-style-position: inside; 
+   margin-left: 15px; 
+}
